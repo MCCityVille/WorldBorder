@@ -1,0 +1,15 @@
+limits:
+  show_border: true
+  message: §4You've hit the world border.
+  sound:
+    name: entity.blaze.hurt
+    pitch: 1.0
+    volume: 4.0
+    category: MASTER
+
+borders:
+  world:
+    ==: de.mccityville.worldborder.border.CuboidBorder
+    center_x: 0
+    center_y: 0
+    radius: 25

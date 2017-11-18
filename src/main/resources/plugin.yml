@@ -1,0 +1,13 @@
+name: CV-WorldBorder
+version: ${project.version}
+main: de.mccityville.worldborder.WorldBorderPlugin
+load: POSTWORLD
+
+commands:
+  borderreload:
+    description: Reloads all borders
+    permission: cvworldborder.reload
+
+permissions:
+  cvworldborder.reload:
+    description: Allows the usage of /borderreload
