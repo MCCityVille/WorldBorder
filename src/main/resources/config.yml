@@ -9,7 +9,8 @@ limits:
 
 borders:
   world:
-    ==: de.mccityville.worldborder.border.CuboidBorder
+    ==: de.mccityville.worldborder.border.VerticalLimitedWorldBorder
     center_x: 0
     center_y: 0
     radius: 25
+    max_y: 255

@@ -1,6 +1,7 @@
 package de.mccityville.worldborder;
 
 import de.mccityville.worldborder.border.CuboidBorder;
+import de.mccityville.worldborder.border.VerticalLimitedWorldBorder;
 import de.mccityville.worldborder.commands.BorderReloadCommand;
 import de.mccityville.worldborder.listener.PlayerListener;
 import org.bukkit.Bukkit;
@@ -14,6 +15,7 @@ public class WorldBorderPlugin extends JavaPlugin {
     @Override
     public void onLoad() {
         ConfigurationSerialization.registerClass(CuboidBorder.class);
+        ConfigurationSerialization.registerClass(VerticalLimitedWorldBorder.class);
     }
 
     @Override
