@@ -2,6 +2,7 @@ package de.mccityville.worldborder.listener;
 
 import de.mccityville.worldborder.BorderManager;
 import de.mccityville.worldborder.border.Border;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -36,12 +37,14 @@ public class PlayerListener implements Listener {
             Border border = borderManager.getBorder(to.getWorld().getName());
             Vector toVector = to.toVector();
             if (border != null && !border.isInBorder(toVector)) {
+                Player player = event.getPlayer();
                 event.setCancelled(true);
+                borderManager.notifyForBorder(player);
                 Vector correction = border.getIntersection(toVector);
                 if (correction != null) {
-                    Player player = event.getPlayer();
-                    player.teleport(correction.toLocation(to.getWorld(), to.getYaw(), to.getPitch()));
-                    borderManager.notifyForBorder(event.getPlayer());
+                    Bukkit.getScheduler().runTaskLater(plugin, () -> {
+                        player.teleport(correction.toLocation(to.getWorld(), to.getYaw(), to.getPitch()));
+                    }, 1);
                 }
             }
         }
