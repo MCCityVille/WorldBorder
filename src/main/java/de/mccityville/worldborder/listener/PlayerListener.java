@@ -40,11 +40,13 @@ public class PlayerListener implements Listener {
                 Player player = event.getPlayer();
                 event.setCancelled(true);
                 borderManager.notifyForBorder(player);
-                Vector correction = border.getIntersection(toVector);
-                if (correction != null) {
-                    Bukkit.getScheduler().runTaskLater(plugin, () -> {
-                        player.teleport(correction.toLocation(to.getWorld(), to.getYaw(), to.getPitch()));
-                    }, 1);
+                if (!border.isInBorder(from.toVector())) {
+                    Vector correction = border.getIntersection(toVector);
+                    if (correction != null) {
+                        Bukkit.getScheduler().runTaskLater(plugin, () -> {
+                            player.teleport(correction.toLocation(to.getWorld(), to.getYaw(), to.getPitch()));
+                        }, 1);
+                    }
                 }
             }
         }
