@@ -6,11 +6,11 @@ import org.bukkit.util.Vector;
 
 import java.util.Map;
 
-public class VerticalLimitedWorldBorder extends CuboidBorder implements ConfigurationSerializable {
+public class VerticalLimitedCuboidWorldBorder extends CuboidBorder implements ConfigurationSerializable {
 
     private final double maxY;
 
-    public VerticalLimitedWorldBorder(double centerX, double centerZ, double radius, double maxY) {
+    public VerticalLimitedCuboidWorldBorder(double centerX, double centerZ, double radius, double maxY) {
         super(centerX, centerZ, radius);
         this.maxY = maxY;
     }
@@ -35,8 +35,8 @@ public class VerticalLimitedWorldBorder extends CuboidBorder implements Configur
     }
 
     @SuppressWarnings("unused")
-    public static VerticalLimitedWorldBorder deserialize(Map<String, Object> data) {
-        return new VerticalLimitedWorldBorder(
+    public static VerticalLimitedCuboidWorldBorder deserialize(Map<String, Object> data) {
+        return new VerticalLimitedCuboidWorldBorder(
                 NumberConversions.toDouble(data.get("center_x")),
                 NumberConversions.toDouble(data.get("center_z")),
                 NumberConversions.toDouble(data.get("radius")),
