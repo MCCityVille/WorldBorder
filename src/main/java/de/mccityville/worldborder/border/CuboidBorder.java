@@ -12,9 +12,9 @@ import java.util.Map;
 
 public class CuboidBorder implements Border, ConfigurationSerializable {
 
-    private final double centerX;
-    private final double centerZ;
-    private final double radius;
+    protected final double centerX;
+    protected final double centerZ;
+    protected final double radius;
 
     public CuboidBorder(double centerX, double centerZ, double radius) {
         this.centerX = centerX;

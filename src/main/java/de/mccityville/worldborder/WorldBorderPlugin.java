@@ -13,13 +13,10 @@ public class WorldBorderPlugin extends JavaPlugin {
     private final BorderManager borderManager = new BorderManager(this);
 
     @Override
-    public void onLoad() {
+    public void onEnable() {
         ConfigurationSerialization.registerClass(CuboidBorder.class);
         ConfigurationSerialization.registerClass(VerticalLimitedCuboidWorldBorder.class);
-    }
 
-    @Override
-    public void onEnable() {
         saveDefaultConfig();
 
         initializeBorderManager();

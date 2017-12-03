@@ -28,6 +28,11 @@ public class VerticalLimitedCuboidWorldBorder extends CuboidBorder implements Co
     }
 
     @Override
+    public String toString() {
+        return "VerticalLimitedCuboid[center=[" + centerX + ", " + centerZ + ", radius=" + radius + ", maxY=" + maxY + "]";
+    }
+
+    @Override
     public Map<String, Object> serialize() {
         Map<String, Object> data = super.serialize();
         data.put("max_y", maxY);

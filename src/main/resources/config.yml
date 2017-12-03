@@ -8,9 +8,9 @@ limits:
     category: MASTER
 
 borders:
-  world:
-    ==: de.mccityville.worldborder.border.VerticalLimitedCuboidWorldBorderBorder
-    center_x: 0
-    center_y: 0
-    radius: 25
-    max_y: 255
+#  world:
+#    ==: de.mccityville.worldborder.border.VerticalLimitedCuboidWorldBorder
+#    center_x: 0
+#    center_z: 0
+#    radius: 25
+#    max_y: 255
