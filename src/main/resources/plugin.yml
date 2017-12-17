@@ -1,7 +1,7 @@
 name: CV-WorldBorder
 version: ${project.version}
 main: de.mccityville.worldborder.WorldBorderPlugin
-load: POSTWORLD
+load: STARTUP
 
 commands:
   borderreload:

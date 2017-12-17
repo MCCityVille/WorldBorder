@@ -23,10 +23,13 @@ public class PlayerListener implements Listener {
 
     private final BorderManager borderManager;
     private final Plugin plugin;
+    private final Runnable initializer;
+    private boolean initialized;
 
-    public PlayerListener(BorderManager borderManager, Plugin plugin) {
+    public PlayerListener(BorderManager borderManager, Plugin plugin, Runnable initializer) {
         this.borderManager = Objects.requireNonNull(borderManager, "borderManager must not be null");
         this.plugin = Objects.requireNonNull(plugin, "plugin must not be null");
+        this.initializer = Objects.requireNonNull(initializer, "initializer must not be null");
     }
 
     @EventHandler
@@ -83,6 +86,11 @@ public class PlayerListener implements Listener {
     }
 
     private void triggerJoinPlayer(Player player) {
+        if (!initialized) {
+            initialized = true;
+            initializer.run();
+        }
+
         World world = player.getWorld();
         Border border = borderManager.getBorder(world);
         if (border != null)

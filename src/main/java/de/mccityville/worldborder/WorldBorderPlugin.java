@@ -19,8 +19,7 @@ public class WorldBorderPlugin extends JavaPlugin {
 
         saveDefaultConfig();
 
-        initializeBorderManager();
-        Bukkit.getPluginManager().registerEvents(new PlayerListener(borderManager, this), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerListener(borderManager, this, this::initializeBorderManager), this);
         getCommand("borderreload").setExecutor(new BorderReloadCommand(this));
     }
 
